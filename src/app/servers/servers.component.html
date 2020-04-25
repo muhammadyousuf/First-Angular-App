@@ -12,6 +12,7 @@
 <br /><br />
 <!-- <p [innerText]="allowNewServer" style="text-transform: capitalize;" ></p> -->
 
-<p>{{ serverCreationStaus }}</p>
+<!-- <p>{{ serverCreationStaus }}</p> -->
+<p *ngIf="serverCreated" >Server was created, server name is {{ serverName }}</p>
 <br />
 <app-server></app-server>
