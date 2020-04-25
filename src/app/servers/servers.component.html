@@ -1,4 +1,12 @@
-<button class="btn btn-primary" [disabled]="!allowNewServer">Add Server</button>
-<p [innerText]="allowNewServer" style="text-transform: capitalize;" ></p>
+<button
+  class="btn btn-primary"
+  [disabled]="!allowNewServer"
+  (click)="onCreateServer()"
+>
+  Add Server
+</button>
 <br /><br />
+<!-- <p [innerText]="allowNewServer" style="text-transform: capitalize;" ></p> -->
+<p>{{ serverCreationStaus }}</p>
+<br />
 <app-server></app-server>
