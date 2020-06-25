@@ -1,0 +1,15 @@
+<div class="card" style="width: 25rem;">
+  <div class="card-body">
+    <h3 class="card-title">
+      {{ server.name }}
+    </h3>
+    <p class="card-text">
+      <strong *ngIf="server.type === 'server'" style="color: red;">{{
+        server.content
+      }}</strong>
+      <em *ngIf="server.type === 'bluePrint'" style="color: blue;">{{
+        server.content
+      }}</em>
+    </p>
+  </div>
+</div>
