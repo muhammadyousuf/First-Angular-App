@@ -1,37 +1,38 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from "@angular/core";
+import { emit } from "process";
 
 @Component({
-  selector: 'app-cockpit',
-  templateUrl: './cockpit.component.html',
-  styleUrls: ['./cockpit.component.css']
+  selector: "app-cockpit",
+  templateUrl: "./cockpit.component.html",
+  styleUrls: ["./cockpit.component.css"],
 })
 export class CockpitComponent implements OnInit {
-  serverName = "";
-  serverContent = "";
+  @Output() serverCreate = new EventEmitter<{
+    serverName: string;
+    serverContent: string;
+  }>();
+  @Output() bluePrintCreated = new EventEmitter<{
+    serverName: string;
+    serverContent: string;
+  }>();
+  newserverName = "";
+  newserverContent = "";
   serverCreated = false;
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
   onCreateServer() {
-    if (this.serverName.length && this.serverContent.length) {
-      this.serverCreated = true;
-      // this.servers.push({
-      //   type: "server",
-      //   name: this.serverName,
-      //   content: this.serverContent,
-      // });
-    }
+    console.log("this.newserverName", this.newserverName);
+    this.serverCreate.emit({
+      serverName: this.newserverName,
+      serverContent: this.newserverContent,
+    });
   }
 
   onCreateBluePrint() {
-    if (this.serverName.length && this.serverContent.length) {
-      this.serverCreated = true;
-      // this.servers.push({
-      //   type: "bluePrint",
-      //   name: this.serverName,
-      //   content: this.serverContent,
-      // });
-    }
+    this.bluePrintCreated.emit({
+      serverName: this.newserverName,
+      serverContent: this.newserverContent,
+    });
   }
 }

@@ -1,15 +1,15 @@
 <label>Server Name</label>
 <!-- <input type="text" class="form-control" (input)="onUpdateServerName($event)" /> -->
-<input type="text" class="form-control" [(ngModel)]="serverName" />
+<input type="text" class="form-control" [(ngModel)]="newserverName" />
 <label>Server Content</label>
 <!-- <input type="text" class="form-control" (input)="onUpdateServerName($event)" /> -->
-<input type="text" class="form-control" [(ngModel)]="serverContent" />
+<input type="text" class="form-control" [(ngModel)]="newserverContent" />
 
 <!-- <p>{{ serverName }}</p> -->
 <br />
 <button
   class="btn btn-primary"
-  [disabled]="!allowNewServer"
+
   (click)="onCreateServer()"
 >
   Add Server
@@ -17,7 +17,7 @@
 <button
   style="margin-left: 5px;"
   class="btn btn-primary"
-  [disabled]="!allowNewServer"
+
   (click)="onCreateBluePrint()"
 >
   Add Blue Print
