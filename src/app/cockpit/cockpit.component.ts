@@ -22,17 +22,20 @@ export class CockpitComponent implements OnInit {
 
   ngOnInit() {}
   onCreateServer() {
-    console.log("this.newserverName", this.newserverName);
-    this.serverCreate.emit({
-      serverName: this.newserverName,
-      serverContent: this.newserverContent,
-    });
+    if (this.newserverName && this.newserverContent) {
+      this.serverCreate.emit({
+        serverName: this.newserverName,
+        serverContent: this.newserverContent,
+      });
+    }
   }
 
   onCreateBluePrint() {
-    this.bluePrintCreated.emit({
-      serverName: this.newserverName,
-      serverContent: this.newserverContent,
-    });
+    if (this.newserverName && this.newserverContent) {
+      this.bluePrintCreated.emit({
+        serverName: this.newserverName,
+        serverContent: this.newserverContent,
+      });
+    }
   }
 }
